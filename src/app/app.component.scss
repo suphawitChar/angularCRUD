@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=K2D:wght@100&display=swap');
+:host {
+    font-family: 'K2D', sans-serif;
+    font-weight: 900;
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'K2D', sans-serif;
+    font-weight: bold;
+    margin: 8px 0;
+  }
+
+  h2, p{
+    text-align: center;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+  .background{
+    background-color:#e28e95;
+    width: 100%;
+  }
+
+  .toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    padding-left: 2em;
+    background-color: #2b753b;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    font-size: large;
+  }
+  .tablecovid {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+  }
+
+  .content {
+    display: absolute;
+    margin: 82px auto 32px;
+    padding: 0 16px;
+    max-width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+
+  footer {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    line-height: 20px;
+  }
+
+  footer a {
+    display: flex;
+    align-items: center;
+  }
+

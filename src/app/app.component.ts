@@ -24,60 +24,39 @@ import {
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  checkoutForm = this.formBuilder.group({
-    name: '',
-    age: '',
-    address: '',
-    id: '',
+  dataForm = this.formBuilder.group({
+    name: null,
+    age: null,
+    address: null,
+    id: null,
   });
   myArray: any;
-  // single: any;
-  // message!: string;
-  // id: string = '';
-  // edit: boolean = false;
-  // item$: Observable<any[]>;
-  favoriteColorControl = new FormControl('');
-  // editForm: any;
-  // message2!: string;
 
   constructor(
     private firestore: AngularFirestore,
     private formBuilder: FormBuilder
-  ) {
-    this.myArray = this.firestore.collection('items').valueChanges();
-    // .subscribe((doc) => {
-    //   console.log(doc.docs);
-    // });
-  }
+  )
+  { this.myArray = this.firestore.collection('items', (ref) =>
+  ref.orderBy('id', 'asc' ),
+  ).valueChanges(); }
 
-  // myapp(data: NgForm) {}
 
   onSubmit() {
     const data = this.firestore.collection('items', (ref) =>
-      ref.where('id', '==', this.checkoutForm.value.id)
+      ref.where('id', '==', this.dataForm.value.id)
     );
 
     data.get().subscribe((res) => {
       if (res.docs.length != 0) {
-        res.docs[0].ref.update(this.checkoutForm.value)
+        res.docs[0].ref.update(this.dataForm.value);
       } else {
-        this.firestore.collection('items').add(this.checkoutForm.value);
+        this.firestore.collection('items').add(this.dataForm.value);
       }
     });
-    // if(this.firestore
-    //   .collection('items')
-    //   .doc(this.checkoutForm)
-    //   .valueChanges(this.checkoutForm.value)
-    //   ){
-
-    // }
-
-    // this.firestore.collection('items').add(this.checkoutForm.value);
   }
 
-  onSelect(doc: any) {
-    // this.edit = !this.edit;
-    this.checkoutForm = this.formBuilder.group({
+  onEdit(doc: any) {
+    this.dataForm = this.formBuilder.group({
       name: doc.name,
       age: doc.age,
       address: doc.address,
@@ -85,16 +64,17 @@ export class AppComponent {
     });
   }
 
-  onDelete() {
-    if (confirm('delete')
-    )
-    this.firestore
-    .collection('items').get().forEach(res=>{
-      res.docs.forEach(r=>{
-        console.log(r)
-        r.ref.delete()
-      })
+  onDelete(id: string, name: string) {
+    if (confirm('Do you want to delete '+name+'?')) {
+      const data = this.firestore.collection('items', (ref) =>
+        ref.where('id', '==', id)
+      );
 
-    })
+      data.get().subscribe((res) => {
+        if (res.docs.length != 0) {
+          res.docs[0].ref.delete();
+        }
+      });
+    }
   }
 }

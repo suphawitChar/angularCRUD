@@ -1,108 +1,51 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Page Title</title>
-  </head>
-
-  <ul>
-    <!-- <li *ngFor="let item of item$ | async">
-        {{ item.name}}
-      </li> -->
-  </ul>
-
-  <div class="container-fluid p-5 bg-primary text-white text-center">
-    <h1>ข้อมูลประวัติส่วนตัว</h1>
-    <p>00000000000000000000000000</p>
-  </div>
-
-  <p></p>
+<!-- Toolbar -->
+<div class="toolbar">
+  <p>ระบบบันทึกข้อมูล</p>
+</div>
+<!-- content -->
+<div class="content">
   <div class="row">
-    <div class="col-xl-6">
-      <div class="container mt-3">
-        <h2>กรอกข้อมูลส่วนตัว</h2>
-        <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
-          <div class="mb-3 mt-3">
-            <label for="id">รหัสประจำตัว: </label>
-            <input
-              type="id"
-              class="form-control"
-              id="id"
-              placeholder="Enter id"
-              name="id"
-              formControlName="id"
-            />
-          </div>
-          <div class="mb-3 mt-3">
-            <label for="name">ชื่อ - สกุล:</label>
-            <input
-              type="name"
-              class="form-control"
-              id="name"
-              placeholder="Enter name"
-              name="name"
-              formControlName="name"
-            />
-          </div>
-          <div class="mb-3">
-            <label for="age">อายุ:</label>
-            <input
-              type="age"
-              class="form-control"
-              id="age"
-              placeholder="Enter age"
-              name="age"
-              formControlName="age"
-            />
-          </div>
+    <div class="col-xxl-6 col-xl-6 col-lg-6 col-sm-12 col-12">
+      <h4>กรอกข้อมูลส่วนตัว</h4>
+      <form [formGroup]="dataForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3 mt-3">
+          <label for="id">รหัสประจำตัว: </label>
+          <input type="id" class="form-control" placeholder="Enter id" name="id" formControlName="id" />
+        </div>
+        <div class="mb-3 mt-3">
+          <label for="name">ชื่อ - สกุล:</label>
+          <input type="name" class="form-control"  placeholder="Enter name" name="name"
+            formControlName="name" />
+        </div>
+        <div class="mb-3">
+          <label for="age">อายุ:</label>
+          <input type="age" class="form-control" placeholder="Enter age" name="age" formControlName="age" />
+        </div>
 
-          <div class="mb-3">
-            <label for="address">ที่อยู่:</label>
-            <input
-              type="address"
-              class="form-control"
-              id="address"
-              placeholder="Enter address"
-              name="address"
-              formControlName="address"
-            />
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-      </div>
+        <div class="mb-3">
+          <label for="address">ที่อยู่:</label>
+          <input type="address" class="form-control" placeholder="Enter address" name="address"
+            formControlName="address" />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
     </div>
 
-    <div class="col-xl-6">
+    <div class="col-xxl-6 col-xl-6 col-lg-6 col-sm-12 col-12">
+      <h4>ข้อมูลส่วนตัว</h4>
       <ul>
-        <li
-          class="list-group-item"
-          *ngFor="let doc of myArray | async"
-          (click)="onSelect(doc)"
-        >
-          {{ doc | json }}
-          <!-- {{ doc.id }}&emsp; {{ doc.name }}&emsp; {{ doc.age }}&emsp; {{ doc.address }}&emsp; -->
+        <li class="list-group-item" *ngFor="let doc of myArray | async">
+          รหัสประจำตัว: {{doc.id}} &nbsp;
+          ชื่อ - สกุล: {{doc.name}}  &nbsp;
+          อายุ: {{doc.age}}  &nbsp;
+          ที่อยู่: {{doc.address}}  &nbsp;
+          <button type="button" class="btn btn-warning" (click)="onEdit(doc)">Edit</button>  &nbsp;
+          <button type="button" class="btn btn-danger" (click)="onDelete(doc.id, doc.name)">Delete</button>
         </li>
       </ul>
 
-      <!-- <p style="color: red">{{ message || null }}</p>
-
-      <div *ngIf="single">
-        <h1>{{ single.field }}</h1>
-        <button style="background-color: lightblue" (click)="openEdit()">Edit</button>
-        <button style="background-color: red">Delete</button>
-      </div>
-      <button (click)="onQuery()">Query</button>
-      <form *ngIf="edit" [formGroup]="this.editForm">
-        <input
-          placeholder="{{ single.field }}"
-          formControlName="replaceValue"
-          type="text"
-          class="input-field col s12"
-        />
-        <button (click)="onRename()">Rename</button>
-      </form>
-      <p style="color: red">{{ message2 || null }}</p> -->
-      <!-- <button type="submit" class="btn btn-primary" style='background-color: coral' (click)='onDelete()'>Delete</button> -->
-      <button type="button" class="btn btn-danger"(click)='onDelete()'>Delete</button>
     </div>
   </div>
-</html>
+
+
+</div>
