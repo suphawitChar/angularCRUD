@@ -1,0 +1,44 @@
+[debug] [2022-01-23T08:32:20.446Z] ----------------------------------------------------------------------
+[debug] [2022-01-23T08:32:20.448Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2022-01-23T08:32:20.449Z] CLI Version:   10.1.2
+[debug] [2022-01-23T08:32:20.449Z] Platform:      win32
+[debug] [2022-01-23T08:32:20.449Z] Node Version:  v14.15.4
+[debug] [2022-01-23T08:32:20.450Z] Time:          Sun Jan 23 2022 15:32:20 GMT+0700 (Indochina Time)
+[debug] [2022-01-23T08:32:20.450Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-01-23T08:32:20.504Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-01-23T08:32:20.504Z] > authorizing via signed-in user (suphawit1942@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\web\angularCRUD
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2022-01-23T08:33:25.413Z] Using project from CLI flag: angular-firebase-d9ce1
+[debug] [2022-01-23T08:33:25.416Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/angular-firebase-d9ce1 [none]
+[debug] [2022-01-23T08:33:25.826Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/angular-firebase-d9ce1 200
+[debug] [2022-01-23T08:33:25.826Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/angular-firebase-d9ce1 {"projectId":"angular-firebase-d9ce1","projectNumber":"1027418878600","displayName":"Angular-Firebase","name":"projects/angular-firebase-d9ce1","resources":{"hostingSite":"angular-firebase-d9ce1","storageBucket":"angular-firebase-d9ce1.appspot.com","locationId":"asia-southeast2"},"state":"ACTIVE"}
+[info] i  Using project angular-firebase-d9ce1 (Angular-Firebase) 
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
