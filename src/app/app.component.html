@@ -10,21 +10,21 @@
       <form [formGroup]="dataForm" (ngSubmit)="onSubmit()">
         <div class="mb-3 mt-3">
           <label for="id">รหัสประจำตัว: </label>
-          <input type="id" class="form-control" placeholder="Enter id" name="id" formControlName="id" />
+          <input type="id" class="form-control" placeholder="Enter id" formControlName="id" />
         </div>
         <div class="mb-3 mt-3">
           <label for="name">ชื่อ - สกุล:</label>
-          <input type="name" class="form-control"  placeholder="Enter name" name="name"
+          <input type="name" class="form-control"  placeholder="Enter name"
             formControlName="name" />
         </div>
         <div class="mb-3">
           <label for="age">อายุ:</label>
-          <input type="age" class="form-control" placeholder="Enter age" name="age" formControlName="age" />
+          <input type="age" class="form-control" placeholder="Enter age" formControlName="age" />
         </div>
 
         <div class="mb-3">
           <label for="address">ที่อยู่:</label>
-          <input type="address" class="form-control" placeholder="Enter address" name="address"
+          <input type="address" class="form-control" placeholder="Enter address"
             formControlName="address" />
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>

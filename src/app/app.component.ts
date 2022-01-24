@@ -17,6 +17,7 @@ import {
   docSnapshots,
   updateDoc,
 } from '@angular/fire/firestore';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +25,7 @@ import {
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  dataForm = this.formBuilder.group({
+  dataForm: FormGroup  = this.formBuilder.group({
     name: null,
     age: null,
     address: null,
@@ -34,7 +35,8 @@ export class AppComponent {
 
   constructor(
     private firestore: AngularFirestore,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private toastr: ToastrService
   )
   { this.myArray = this.firestore.collection('items', (ref) =>
   ref.orderBy('id', 'asc' ),
@@ -49,8 +51,11 @@ export class AppComponent {
     data.get().subscribe((res) => {
       if (res.docs.length != 0) {
         res.docs[0].ref.update(this.dataForm.value);
+        console.log(this.dataForm.value);
+        this.toastr.success('Update success', 'Name : '+ this.dataForm.value.name); //green
       } else {
         this.firestore.collection('items').add(this.dataForm.value);
+        this.toastr.show('Add success', 'Name : '+ this.dataForm.value.name); //black
       }
     });
   }
@@ -73,6 +78,10 @@ export class AppComponent {
       data.get().subscribe((res) => {
         if (res.docs.length != 0) {
           res.docs[0].ref.delete();
+          this.toastr.error('Delete success error', ); //red
+          this.toastr.info('Delete success info', ); //blue
+          this.toastr.warning('Delete success warning', ); //yellow
+
         }
       });
     }

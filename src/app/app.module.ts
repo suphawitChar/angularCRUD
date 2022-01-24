@@ -10,6 +10,8 @@ import { firebaseConfig } from 'src/environments/firebase.config';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { AngularFireModule } from '@angular/fire/compat';
     ReactiveFormsModule,
     AngularFireDatabaseModule,
     AngularFirestoreModule,
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
 
 
     // AngularFirestoreCollection,
